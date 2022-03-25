@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose'
 
-const movie = new Schema<any>({
+const movie = new Schema({
   image: {
-    type: Image || String || HTMLImageElement,
+    type: String,
     required: true,
   },
   title: {
@@ -18,15 +18,15 @@ const movie = new Schema<any>({
     required: false,
   },
   multipleCategories: {
-    type: String,
+    type: Array,
     required: true,
   },
   youtubeTrailer: {
-    type: String || File || HTMLVideoElement,
+    type: String,
     required: false,
   },
   releaseDate: {
-    type: String || Number,
+    type: Date,
     required: true,
   },
 })

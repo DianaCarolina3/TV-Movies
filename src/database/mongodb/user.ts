@@ -31,11 +31,7 @@ const insert = async (data: any) => {
 const remove = async (id: string) => {
   const data = await User.findByIdAndDelete(id)
 
-  //   const user = data.username
-
-  //   await Authen.findOneAndRemove({ username: user })
-
   return data
 }
 
-export = { insert, list, get, remove }
+export default { insert, list, get, remove }

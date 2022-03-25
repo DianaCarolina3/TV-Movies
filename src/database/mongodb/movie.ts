@@ -1,4 +1,4 @@
-const Movie = require('../../utils/models-mongodb/md-db-movie')
+import Movie from '../../utils/models-mongodb/md-db-movie'
 
 const list = async () => {
   const data = await Movie.find().exec()
@@ -14,14 +14,16 @@ const get = async (id: string) => {
 
 const insert = async (data: any) => {
   const movie = new Movie({
-    img: data.img,
+    image: data.image,
     title: data.title,
-    price: data.price,
     description: data.description,
-    dateCreation: data.dateCreation,
+    duration: data.duration,
+    multipleCategories: data.multipleCategories,
+    youtubeTrailer: data.youtubeTrailer,
+    releaseDate: data.releaseDate,
   })
 
-  const payload = await Movie.save()
+  const payload = await movie.save()
 
   return payload
 }
@@ -61,4 +63,4 @@ const remove = async (id: string) => {
   return data
 }
 
-export = { upsert, list, get, remove }
+export default { upsert, list, get, remove }
